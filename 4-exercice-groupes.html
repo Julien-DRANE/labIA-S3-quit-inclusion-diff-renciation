@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 2 - Groupes de remédiation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="exercise-pages.css" rel="stylesheet">
+</head>
+<body>
+  <main class="exercise-shell">
+    <section class="hero">
+      <div class="hero__top">
+        <a class="back-link" href="4.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la slide 4
+        </a>
+        <span class="badge"><i class="fa-solid fa-people-group"></i> Groupes de besoins</span>
+      </div>
+      <h1>Exercice 2 : créer G1, G2, G3 avec Duck.ai</h1>
+      <p>Objectif : demander à l'IA une première proposition de groupes de remédiation, tout en imposant des règles lisibles et justifiables.</p>
+      <div class="pill-nav">
+        <a class="pill" href="4-exercice-base.html">1. Base fictive</a>
+        <a class="pill is-active" href="4-exercice-groupes.html">2. Créer les groupes</a>
+        <a class="pill" href="4-exercice-planification.html">3. Planifier</a>
+      </div>
+    </section>
+
+    <section class="exercise-grid">
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Données récupérées</p>
+          <h2>Base à transmettre à l'IA</h2>
+          <p>Si l'étape 1 a été faite, la base apparaît automatiquement ici.</p>
+          <div class="card__actions">
+            <button class="button button--secondary" data-copy-target="exercise4-group-base" data-default-label="Copier la base">Copier la base</button>
+          </div>
+          <div class="field">
+            <label for="exercise4-group-base">Base stagiaire</label>
+            <textarea class="text-input" id="exercise4-group-base" readonly data-read-from="labia_ex4_base" data-empty-message="Faites d'abord l'étape 1 pour récupérer ici la base fictive."></textarea>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Prompt prêt à copier</p>
+          <h2>Prompt pour Duck.ai</h2>
+          <p>Le prompt force l'IA à créer trois groupes clairs, avec justification et activités adaptées.</p>
+          <div class="card__actions">
+            <a class="button" href="https://duck.ai/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Ouvrir Duck.ai
+            </a>
+            <button class="button button--secondary" data-copy-target="exercise4-groups-prompt" data-default-label="Copier le prompt">Copier le prompt</button>
+          </div>
+          <div class="field">
+            <label for="exercise4-groups-prompt">Prompt à coller</label>
+            <textarea class="text-input" id="exercise4-groups-prompt" readonly data-template-source-key="labia_ex4_base" data-template-token="{{BASE_ELEVES}}" data-template-empty-message="[La base fictive n'est pas encore remplie.]">Tu es un assistant pédagogique.
+
+À partir de la base d'élèves ci-dessous, crée 3 groupes de remédiation :
+- G1 = bases fragiles / besoin de guidage fort
+- G2 = entraînement guidé / consolidation
+- G3 = approfondissement / autonomie plus forte
+
+Contraintes :
+- Répartis tous les élèves dans un seul groupe.
+- Justifie chaque groupe en 2 ou 3 lignes.
+- Pour chaque groupe, propose 2 activités adaptées.
+- Garde une logique pédagogique simple et explicite.
+- N'invente pas de nouvelles données sur les élèves.
+- Présente la réponse sous cette forme :
+  1. G1 : élèves / justification / activités
+  2. G2 : élèves / justification / activités
+  3. G3 : élèves / justification / activités
+
+Base d'élèves :
+{{BASE_ELEVES}}</textarea>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Production stagiaire</p>
+          <h2>Groupes proposés par l'IA</h2>
+          <p>Les stagiaires collent ici la proposition de Duck.ai, puis la réutiliseront pour planifier.</p>
+          <div class="field">
+            <label for="exercise4-groups-output">G1 / G2 / G3</label>
+            <textarea class="text-input" id="exercise4-groups-output" data-storage-key="labia_ex4_groups" placeholder="Recoller ici la proposition de groupes fournie par Duck.ai..."></textarea>
+          </div>
+          <div class="card__actions">
+            <a class="button button--ghost" href="4-exercice-planification.html">
+              <i class="fa-solid fa-arrow-right"></i>
+              Passer à l'étape 3
+            </a>
+          </div>
+          <div class="status" data-save-status></div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Point de vigilance</p>
+          <h2>Ce qu'il faut relire</h2>
+          <ol class="notes">
+            <li>Chaque élève est bien dans un seul groupe.</li>
+            <li>Les activités proposées correspondent au niveau du groupe.</li>
+            <li>Les justifications restent pédagogiques et non stigmatisantes.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="exercise-pages.js"></script>
+</body>
+</html>

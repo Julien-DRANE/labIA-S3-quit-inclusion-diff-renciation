@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3 - Planification des parcours</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="exercise-pages.css" rel="stylesheet">
+</head>
+<body>
+  <main class="exercise-shell">
+    <section class="hero">
+      <div class="hero__top">
+        <a class="back-link" href="4.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la slide 4
+        </a>
+        <span class="badge"><i class="fa-solid fa-calendar-check"></i> Planification guidée</span>
+      </div>
+      <h1>Exercice 3 : planifier la remédiation</h1>
+      <p>Objectif : transformer les groupes en parcours concrets avec rythme, supports et critères d'entrée/sortie.</p>
+      <div class="pill-nav">
+        <a class="pill" href="4-exercice-base.html">1. Base fictive</a>
+        <a class="pill" href="4-exercice-groupes.html">2. Créer les groupes</a>
+        <a class="pill is-active" href="4-exercice-planification.html">3. Planifier</a>
+      </div>
+    </section>
+
+    <section class="exercise-grid">
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Groupes récupérés</p>
+          <h2>Proposition de groupes à planifier</h2>
+          <p>La proposition de l'étape 2 est reprise ici pour éviter aux stagiaires de repartir de zéro.</p>
+          <div class="card__actions">
+            <button class="button button--secondary" data-copy-target="exercise4-plan-groups" data-default-label="Copier les groupes">Copier les groupes</button>
+          </div>
+          <div class="field">
+            <label for="exercise4-plan-groups">Groupes G1 / G2 / G3</label>
+            <textarea class="text-input" id="exercise4-plan-groups" readonly data-read-from="labia_ex4_groups" data-empty-message="Faites d'abord l'étape 2 pour récupérer ici les groupes proposés."></textarea>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Prompt prêt à copier</p>
+          <h2>Prompt de planification pour Duck.ai</h2>
+          <p>Le prompt demande une organisation simple, réaliste et facilement réutilisable en classe.</p>
+          <div class="card__actions">
+            <a class="button" href="https://duck.ai/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Ouvrir Duck.ai
+            </a>
+            <button class="button button--secondary" data-copy-target="exercise4-plan-prompt" data-default-label="Copier le prompt">Copier le prompt</button>
+          </div>
+          <div class="field">
+            <label for="exercise4-plan-prompt">Prompt à coller</label>
+            <textarea class="text-input" id="exercise4-plan-prompt" readonly data-template-source-key="labia_ex4_groups" data-template-token="{{GROUPES_G123}}" data-template-empty-message="[Les groupes G1 / G2 / G3 ne sont pas encore remplis.]">Tu es un assistant pédagogique.
+
+À partir des groupes G1, G2 et G3 ci-dessous, propose une planification simple de remédiation.
+
+Contraintes :
+- Fais un plan sur 2 semaines.
+- Pour chaque groupe, indique :
+  - objectif prioritaire
+  - 2 activités
+  - fréquence ou rythme de reprise
+  - support conseillé
+  - critère d'entrée / de sortie
+- Reste réaliste pour un enseignant en classe ordinaire.
+- Utilise un format clair avec des titres par groupe.
+- N'invente pas de nouveaux élèves.
+
+Groupes à planifier :
+{{GROUPES_G123}}</textarea>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Production stagiaire</p>
+          <h2>Planification finale</h2>
+          <p>Le résultat final servira de support de discussion pour le débriefing de la slide 4.</p>
+          <div class="field">
+            <label for="exercise4-plan-output">Plan des parcours</label>
+            <textarea class="text-input" id="exercise4-plan-output" data-storage-key="labia_ex4_plan" placeholder="Recoller ici la planification produite par Duck.ai..."></textarea>
+          </div>
+          <div class="status" data-save-status></div>
+        </article>
+
+        <article class="card completion-section" data-complete-keys="labia_ex4_base,labia_ex4_groups,labia_ex4_plan" data-ready-message="Les 3 productions sont remplies. Vous pouvez ouvrir l'infographie finale." data-incomplete-message="Completez d'abord les 3 productions : base fictive, groupes G1/G2/G3, planification finale.">
+          <p class="eyebrow">Fin du parcours</p>
+          <h2>Étape finale</h2>
+          <p>Quand les trois productions sont remplies, ouvrez la page suivante pour afficher l’infographie seule avant le retour à la slide 4.</p>
+          <div class="completion-footer">
+            <p class="completion-hint" data-completion-hint>Completez d'abord les 3 productions : base fictive, groupes G1/G2/G3, planification finale.</p>
+            <a class="button is-disabled" href="4-infographie-finale.html" aria-disabled="true" data-completion-button>
+              <i class="fa-solid fa-arrow-right"></i>
+              Voir l'infographie finale
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="exercise-pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1 - Générer un brouillon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="exercise-pages.css" rel="stylesheet">
+</head>
+<body>
+  <main class="exercise-shell">
+    <section class="hero">
+      <div class="hero__top">
+        <a class="back-link" href="5.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la slide 5
+        </a>
+        <span class="badge"><i class="fa-solid fa-file-pen"></i> Processus visible</span>
+      </div>
+      <h1>Exercice 1 : générer un brouillon disciplinaire</h1>
+      <p>Objectif : produire un premier texte avec l’IA sur un sujet donné, pour ensuite analyser la démarche plutôt que seulement le résultat final.</p>
+      <div class="pill-nav">
+        <a class="pill is-active" href="5-exercice-brouillon.html">1. Brouillon</a>
+        <a class="pill" href="5-exercice-journal.html">2. Trace du travail</a>
+        <a class="pill" href="5-exercice-grille.html">3. Grille d'évaluation</a>
+      </div>
+    </section>
+
+    <section class="exercise-grid">
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Sujet proposé</p>
+          <h2>Sujet disciplinaire prêt à utiliser</h2>
+          <p>Le sujet est déjà fixé pour éviter aux stagiaires de perdre du temps à choisir une consigne.</p>
+          <div class="field">
+            <label for="exercise5-topic">Sujet</label>
+            <textarea class="text-input" id="exercise5-topic" readonly>En quoi la Révolution française transforme-t-elle durablement la société française ?</textarea>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Prompt prêt à copier</p>
+          <h2>Prompt pour Duck.ai</h2>
+          <p>Le prompt donne un cadre assez précis pour obtenir un brouillon exploitable, mais volontairement perfectible.</p>
+          <div class="card__actions">
+            <a class="button" href="https://duck.ai/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Ouvrir Duck.ai
+            </a>
+            <button class="button button--secondary" data-copy-target="exercise5-draft-prompt" data-default-label="Copier le prompt">Copier le prompt</button>
+          </div>
+          <div class="field">
+            <label for="exercise5-draft-prompt">Prompt à coller</label>
+            <textarea class="text-input" id="exercise5-draft-prompt" readonly>Tu es un assistant de rédaction scolaire.
+
+Rédige un brouillon de réponse pour un élève de lycée sur le sujet suivant :
+"En quoi la Révolution française transforme-t-elle durablement la société française ?"
+
+Contraintes :
+- Longueur : environ 220 à 260 mots.
+- Fais une courte introduction, 2 idées développées, puis une conclusion.
+- Utilise un ton scolaire clair.
+- Le texte doit être plausible mais pas parfait, afin qu'il puisse ensuite être relu, corrigé et discuté.
+- N'ajoute pas de bibliographie finale.
+- N'écris pas que le texte a été généré par une IA.</textarea>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Production stagiaire</p>
+          <h2>Brouillon généré</h2>
+          <p>Le brouillon recollé ici servira de base pour la trace du travail puis pour la grille d’évaluation.</p>
+          <div class="field">
+            <label for="exercise5-draft-output">Texte généré</label>
+            <textarea class="text-input" id="exercise5-draft-output" data-storage-key="labia_ex5_draft" placeholder="Recoller ici le brouillon généré par Duck.ai..."></textarea>
+          </div>
+          <div class="card__actions">
+            <a class="button button--ghost" href="5-exercice-journal.html">
+              <i class="fa-solid fa-arrow-right"></i>
+              Passer à l'étape 2
+            </a>
+          </div>
+          <div class="status" data-save-status></div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Ce qu'on cherche</p>
+          <h2>Pourquoi commencer par un brouillon ?</h2>
+          <ol class="notes">
+            <li>Le brouillon sert de trace de départ.</li>
+            <li>Il donne matière à correction, vérification et justification.</li>
+            <li>Il permet ensuite d’évaluer le processus suivi par l’élève.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="exercise-pages.js"></script>
+</body>
+</html>

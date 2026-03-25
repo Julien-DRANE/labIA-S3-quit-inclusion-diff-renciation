@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="slides-nav.css" rel="stylesheet"/>
+<style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #ffffff; font-family: 'Roboto', sans-serif; }
+    .slide { width: 1280px; height: 720px; }
+    .vote-card {
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    .vote-card.is-answered {
+      background: #fbfdff;
+      border-color: #bfd8f3 !important;
+      box-shadow: 0 8px 24px rgba(31, 111, 178, 0.08);
+    }
+    .vote-btn {
+      min-width: 52px;
+      height: 38px;
+      border: 1px solid #d7e6f7;
+      border-radius: 0.75rem;
+      background: #ffffff;
+      color: #1f6fb2;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+    .vote-btn:hover,
+    .vote-btn:focus-visible {
+      outline: none;
+      transform: translateY(-1px);
+      border-color: #8fb7e6;
+      box-shadow: 0 0 0 3px rgba(143, 183, 230, 0.22);
+    }
+    .vote-btn[data-answer="no"] {
+      color: #4b5563;
+      border-color: #e5e7eb;
+    }
+    .vote-btn.is-selected[data-answer="yes"] {
+      background: #1f6fb2;
+      border-color: #1f6fb2;
+      color: #ffffff;
+      box-shadow: 0 10px 18px rgba(31, 111, 178, 0.22);
+    }
+    .vote-btn.is-selected[data-answer="no"] {
+      background: #4b5563;
+      border-color: #4b5563;
+      color: #ffffff;
+      box-shadow: 0 10px 18px rgba(75, 85, 99, 0.2);
+    }
+    .vote-reset {
+      border: 1px solid #d7e6f7;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #0b3a66;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.45rem 0.8rem;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      cursor: pointer;
+    }
+    .vote-reset:hover,
+    .vote-reset:focus-visible {
+      outline: none;
+      background: #eaf2fc;
+      border-color: #8fb7e6;
+    }
+  </style>
+</head>
+<body>
+<div class="slide flex bg-gray-50 text-gray-900">
+<!-- Left accent bar -->
+<div class="w-20 h-full flex flex-col items-center justify-between py-10" style="background:#0B3A66;">
+<div class="w-10 h-10 rounded-full flex items-center justify-center bg-white bg-opacity-10">
+<i class="fa-solid fa-chalkboard-user text-white text-lg"></i>
+</div>
+<div class="flex flex-col items-center space-y-3">
+<div class="w-2 h-10 rounded" style="background:#8FB7E6;"></div>
+<div class="w-2 h-20 rounded bg-white bg-opacity-20"></div>
+<div class="w-2 h-10 rounded bg-white bg-opacity-20"></div>
+</div>
+<div class="text-white text-xs tracking-wider">
+<p>Diapo 1/6</p>
+</div>
+</div>
+<!-- Main content -->
+<div class="flex-1 flex flex-col px-16 py-12">
+<!-- Header -->
+<div class="flex items-start justify-between">
+<div class="max-w-4xl">
+<p class="text-sm uppercase tracking-widest font-medium text-gray-500">Posture du formateur</p>
+<p class="mt-2 text-4xl font-bold leading-tight" style="color:#0B3A66;">
+            L’IA : <span class="font-bold" style="color:#1F6FB2;">levier</span>, pas <span class="font-bold text-gray-800">substitut</span>
+</p>
+<div class="mt-4 w-24 h-1 rounded" style="background:#1F6FB2;"></div>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg flex items-center justify-center border" style="border-color:#D7E6F7; background:#FFFFFF;">
+<i class="fa-solid fa-robot" style="color:#1F6FB2;"></i>
+</div>
+<div class="w-10 h-10 rounded-lg flex items-center justify-center border" style="border-color:#D7E6F7; background:#FFFFFF;">
+<i class="fa-solid fa-scale-balanced" style="color:#1F6FB2;"></i>
+</div>
+</div>
+</div>
+<!-- Body grid -->
+<div class="flex-1 mt-10 flex space-x-10">
+<!-- Left column: Objective + Key message -->
+<div class="flex-1 flex flex-col space-y-6">
+<!-- Objective card -->
+<div class="rounded-xl border p-6 bg-white" style="border-color:#D7E6F7;">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:#EAF2FC;">
+<i class="fa-solid fa-bullseye" style="color:#0B3A66;"></i>
+</div>
+<p class="text-lg font-semibold" style="color:#0B3A66;">Objectif</p>
+</div>
+<p class="mt-4 text-lg text-gray-800 leading-relaxed">
+              Rappeler que <span class="font-semibold">l’enseignant</span> reste l’<span class="font-semibold">expert pédagogique</span>.
+            </p>
+</div>
+<!-- Key message quote -->
+<div class="rounded-xl border p-6 bg-white flex-1" style="border-color:#D7E6F7;">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:#EAF2FC;">
+<i class="fa-solid fa-quote-left" style="color:#0B3A66;"></i>
+</div>
+<p class="text-lg font-semibold" style="color:#0B3A66;">Message clé</p>
+</div>
+<div class="mt-5 rounded-lg p-5 border" style="border-color:#E6EEF8; background:#FBFDFF;">
+<p class="text-2xl font-bold leading-snug" style="color:#0B3A66;">
+                « L’IA <span style="color:#1F6FB2;">imite</span> et <span style="color:#1F6FB2;">calcule</span>, mais ne <span class="text-gray-900">pense</span> pas. »
+              </p>
+</div>
+<p class="mt-5 text-base text-gray-700 leading-relaxed">
+              Le formateur aide à <span class="font-semibold">décider</span> ce que l’IA
+              <span class="font-semibold" style="color:#0B3A66;">doit</span> / <span class="font-semibold text-gray-900;">ne doit pas</span> faire :
+              cadrer l’intention, vérifier, contextualiser, et assumer la responsabilité pédagogique.
+            </p>
+<div class="mt-5 flex items-start space-x-3">
+<div class="w-7 h-7 rounded-full flex items-center justify-center mt-0.5" style="background:#1F6FB2;">
+<i class="fa-solid fa-check text-white text-xs"></i>
+</div>
+<p class="text-sm text-gray-700 leading-relaxed">
+                Règle simple : <span class="font-semibold">l’IA propose</span>, <span class="font-semibold">l’enseignant dispose</span>.
+              </p>
+</div>
+</div>
+</div>
+<!-- Right column: Icebreaker -->
+<div class="w-5/12 flex flex-col">
+<div class="rounded-xl border p-6 bg-white flex-1" style="border-color:#D7E6F7;">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:#EAF2FC;">
+<i class="fa-solid fa-hand-paper" style="color:#0B3A66;"></i>
+</div>
+<div>
+<p class="text-lg font-semibold" style="color:#0B3A66;">Brise-glace</p>
+<p class="text-sm text-gray-600"><span class="font-semibold">« L’IA peut-elle ? »</span> — vote Oui / Non</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<div class="px-3 py-1 rounded-full text-xs font-semibold" style="background:#EAF2FC; color:#0B3A66;">
+                  3 min
+                </div>
+<div class="px-3 py-1 rounded-full text-xs font-semibold" style="background:#F2F5F8; color:#374151;">
+                  Binômes
+                </div>
+</div>
+</div>
+<div class="mt-6 space-y-3" id="vote-questions">
+<div class="rounded-lg border p-4 vote-card" data-empty-message="Choisissez Oui ou Non pour lancer le débat." data-no-note="Votre réponse met en avant les limites de l’IA sans lecture fine du contexte pédagogique." data-question-id="q1" data-yes-note="Votre réponse souligne qu’un outil peut repérer des indices, mais pas inférer seul toute l’intention pédagogique." style="border-color:#E6EEF8;">
+<div class="flex items-start justify-between space-x-4">
+<p class="text-base text-gray-800 leading-snug">
+<span class="font-semibold" style="color:#0B3A66;">1.</span> Analyser une <span class="font-semibold">intention d’apprentissage implicite</span> ?
+                  </p>
+<div class="flex items-center space-x-2 flex-shrink-0">
+<button class="vote-btn" data-answer="yes" type="button">Oui</button>
+<button class="vote-btn" data-answer="no" type="button">Non</button>
+</div>
+</div>
+<p aria-live="polite" class="mt-3 text-sm text-gray-500 vote-feedback">Choisissez Oui ou Non pour lancer le débat.</p>
+</div>
+<div class="rounded-lg border p-4 vote-card" data-empty-message="Répondez selon votre expérience de terrain." data-no-note="Votre réponse insiste sur le rôle irremplaçable de l’observation humaine et de la connaissance de l’élève." data-question-id="q2" data-yes-note="Votre réponse ouvre la discussion sur l’aide possible de l’IA, à condition qu’un adulte ajuste réellement pour l’élève." style="border-color:#E6EEF8;">
+<div class="flex items-start justify-between space-x-4">
+<p class="text-base text-gray-800 leading-snug">
+<span class="font-semibold" style="color:#0B3A66;">2.</span> Adapter finement pour <span class="font-semibold">un élève précis</span> ?
+                  </p>
+<div class="flex items-center space-x-2 flex-shrink-0">
+<button class="vote-btn" data-answer="yes" type="button">Oui</button>
+<button class="vote-btn" data-answer="no" type="button">Non</button>
+</div>
+</div>
+<p aria-live="polite" class="mt-3 text-sm text-gray-500 vote-feedback">Répondez selon votre expérience de terrain.</p>
+</div>
+<div class="rounded-lg border p-4 vote-card" data-empty-message="Prenez position avant de poursuivre." data-no-note="Votre réponse rappelle qu’un plan produit sans validation humaine reste fragile et potentiellement inadapté." data-question-id="q3" data-yes-note="Votre réponse reconnaît l’utilité de l’IA pour proposer une base, mais pas pour garantir seule la fiabilité pédagogique." style="border-color:#E6EEF8;">
+<div class="flex items-start justify-between space-x-4">
+<p class="text-base text-gray-800 leading-snug">
+<span class="font-semibold" style="color:#0B3A66;">3.</span> Rédiger seul un <span class="font-semibold">plan de cours fiable</span> ?
+                  </p>
+<div class="flex items-center space-x-2 flex-shrink-0">
+<button class="vote-btn" data-answer="yes" type="button">Oui</button>
+<button class="vote-btn" data-answer="no" type="button">Non</button>
+</div>
+</div>
+<p aria-live="polite" class="mt-3 text-sm text-gray-500 vote-feedback">Prenez position avant de poursuivre.</p>
+</div>
+<div class="rounded-lg border p-4 vote-card" data-empty-message="Le vote permet de comparer perception technique et réalité de classe." data-no-note="Votre réponse insiste sur le fait qu’une incompréhension se lit aussi dans la relation, le contexte et les signaux faibles." data-question-id="q4" data-yes-note="Votre réponse reconnaît que certains indices peuvent être détectés, sans remplacer l’interprétation professionnelle du formateur." style="border-color:#E6EEF8;">
+<div class="flex items-start justify-between space-x-4">
+<p class="text-base text-gray-800 leading-snug">
+<span class="font-semibold" style="color:#0B3A66;">4.</span> Détecter une <span class="font-semibold">incompréhension</span> en temps réel ?
+                  </p>
+<div class="flex items-center space-x-2 flex-shrink-0">
+<button class="vote-btn" data-answer="yes" type="button">Oui</button>
+<button class="vote-btn" data-answer="no" type="button">Non</button>
+</div>
+</div>
+<p aria-live="polite" class="mt-3 text-sm text-gray-500 vote-feedback">Le vote permet de comparer perception technique et réalité de classe.</p>
+</div>
+</div>
+<div class="mt-4 rounded-lg p-4 border" style="border-color:#E6EEF8; background:#FFFFFF;">
+<div class="flex items-start justify-between space-x-4">
+<div>
+<p class="text-sm font-semibold" style="color:#0B3A66;">Vos réponses</p>
+<p class="text-xs text-gray-500" id="vote-progress">0/4 question répondue</p>
+</div>
+<button class="vote-reset" id="vote-reset" type="button">Réinitialiser</button>
+</div>
+<div class="mt-3 grid grid-cols-2 gap-3">
+<div class="rounded-lg px-3 py-2" style="background:#EAF2FC;">
+<p class="text-xs uppercase tracking-wide font-semibold" style="color:#0B3A66;">Oui</p>
+<p class="mt-1 text-lg font-bold" id="vote-yes-count" style="color:#1F6FB2;">0</p>
+</div>
+<div class="rounded-lg px-3 py-2" style="background:#F2F5F8;">
+<p class="text-xs uppercase tracking-wide font-semibold text-gray-600">Non</p>
+<p class="mt-1 text-lg font-bold text-gray-700" id="vote-no-count">0</p>
+</div>
+</div>
+<p class="mt-3 text-sm text-gray-700 leading-relaxed" id="vote-summary-text">
+                  Commencez le vote pour faire émerger la différence entre <span class="font-semibold">capacité technique</span> et
+                  <span class="font-semibold">conscience pédagogique</span>.
+                </p>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="text-xs text-gray-500">
+<p>Formation : IA &amp; inclusion • Version {à compléter}</p>
+</div>
+<div class="text-xs font-medium" style="color:#0B3A66;">
+<p>Posture → Cadre → Cas pratiques</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    const storageKey = "labia-slide-1-votes";
+    const cards = Array.from(document.querySelectorAll(".vote-card[data-question-id]"));
+    const progress = document.getElementById("vote-progress");
+    const yesCount = document.getElementById("vote-yes-count");
+    const noCount = document.getElementById("vote-no-count");
+    const summary = document.getElementById("vote-summary-text");
+    const resetButton = document.getElementById("vote-reset");
+
+    if (!cards.length || !progress || !yesCount || !noCount || !summary || !resetButton) {
+      return;
+    }
+
+    const labels = {
+      yes: "Oui",
+      no: "Non"
+    };
+    let votes = {};
+
+    try {
+      votes = JSON.parse(window.localStorage.getItem(storageKey) || "{}") || {};
+    } catch (error) {
+      votes = {};
+    }
+
+    const saveVotes = function () {
+      try {
+        window.localStorage.setItem(storageKey, JSON.stringify(votes));
+      } catch (error) {
+        // localStorage peut être indisponible selon le contexte de rendu.
+      }
+    };
+
+    const getSummaryText = function (answered, total, yesTotal, noTotal) {
+      if (answered === 0) {
+        return "Commencez le vote pour faire émerger la différence entre capacité technique et conscience pédagogique.";
+      }
+
+      if (answered < total) {
+        return "Les premières réponses alimentent déjà le débat. Continuez pour comparer les zones où l'IA assiste et celles où l'enseignant reste décisif.";
+      }
+
+      if (yesTotal === total) {
+        return "Toutes les réponses sont sur Oui : utile pour montrer qu'une capacité technique ne signifie pas une autonomie pédagogique complète.";
+      }
+
+      if (noTotal === total) {
+        return "Toutes les réponses sont sur Non : bon point d'appui pour rappeler que l'IA ne remplace ni le jugement ni la connaissance du terrain.";
+      }
+
+      return "Le groupe distingue des capacités possibles de l'IA, mais aussi la nécessité d'un cadrage humain pour interpréter, ajuster et valider.";
+    };
+
+    const renderCard = function (card) {
+      const questionId = card.dataset.questionId;
+      const selectedAnswer = votes[questionId];
+      const feedback = card.querySelector(".vote-feedback");
+      const buttons = Array.from(card.querySelectorAll(".vote-btn"));
+
+      card.classList.toggle("is-answered", Boolean(selectedAnswer));
+
+      buttons.forEach(function (button) {
+        const isSelected = button.dataset.answer === selectedAnswer;
+        button.classList.toggle("is-selected", isSelected);
+        button.setAttribute("aria-pressed", isSelected ? "true" : "false");
+      });
+
+      if (!feedback) {
+        return;
+      }
+
+      if (!selectedAnswer) {
+        feedback.textContent = card.dataset.emptyMessage || "Choisissez une réponse.";
+        return;
+      }
+
+      const note = selectedAnswer === "yes" ? card.dataset.yesNote : card.dataset.noNote;
+      feedback.textContent = "Réponse enregistrée : " + labels[selectedAnswer] + ". " + note;
+    };
+
+    const renderSummary = function () {
+      const answers = Object.values(votes).filter(function (value) {
+        return value === "yes" || value === "no";
+      });
+      const answered = answers.length;
+      const yesTotal = answers.filter(function (value) { return value === "yes"; }).length;
+      const noTotal = answers.filter(function (value) { return value === "no"; }).length;
+      const total = cards.length;
+
+      progress.textContent = answered + "/" + total + (answered > 1 ? " questions repondues" : " question repondue");
+      yesCount.textContent = String(yesTotal);
+      noCount.textContent = String(noTotal);
+      summary.textContent = getSummaryText(answered, total, yesTotal, noTotal);
+    };
+
+    const render = function () {
+      cards.forEach(renderCard);
+      renderSummary();
+    };
+
+    cards.forEach(function (card) {
+      const questionId = card.dataset.questionId;
+      const buttons = Array.from(card.querySelectorAll(".vote-btn"));
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          votes[questionId] = button.dataset.answer;
+          saveVotes();
+          render();
+        });
+      });
+    });
+
+    resetButton.addEventListener("click", function () {
+      votes = {};
+      try {
+        window.localStorage.removeItem(storageKey);
+      } catch (error) {
+        // Rien a faire si le stockage local n'est pas accessible.
+      }
+      render();
+    });
+
+    render();
+  })();
+</script>
+<script defer src="slides-nav.js"></script>
+</body>
+</html>

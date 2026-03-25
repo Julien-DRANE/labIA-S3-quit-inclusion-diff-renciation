@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 2 - Trace du travail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="exercise-pages.css" rel="stylesheet">
+</head>
+<body>
+  <main class="exercise-shell">
+    <section class="hero">
+      <div class="hero__top">
+        <a class="back-link" href="5.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la slide 5
+        </a>
+        <span class="badge"><i class="fa-solid fa-clipboard-list"></i> Trace visible</span>
+      </div>
+      <h1>Exercice 2 : compléter la trace du travail</h1>
+      <p>Objectif : guider les stagiaires pas à pas pour expliciter ce que l’élève a gardé, corrigé, vérifié et choisi après le brouillon IA.</p>
+      <div class="pill-nav">
+        <a class="pill" href="5-exercice-brouillon.html">1. Brouillon</a>
+        <a class="pill is-active" href="5-exercice-journal.html">2. Trace du travail</a>
+        <a class="pill" href="5-exercice-grille.html">3. Grille d'évaluation</a>
+      </div>
+    </section>
+
+    <section class="exercise-grid">
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Texte récupéré</p>
+          <h2>Brouillon à analyser</h2>
+          <p>Le brouillon de l’étape 1 est repris ici pour que les stagiaires puissent documenter leurs choix sans recopier le texte.</p>
+          <div class="card__actions">
+            <button class="button button--secondary" data-copy-target="exercise5-journal-draft" data-default-label="Copier le brouillon">Copier le brouillon</button>
+          </div>
+          <div class="field">
+            <label for="exercise5-journal-draft">Brouillon initial</label>
+            <textarea class="text-input" id="exercise5-journal-draft" readonly data-read-from="labia_ex5_draft" data-empty-message="Faites d'abord l'étape 1 pour récupérer ici le brouillon généré."></textarea>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Champs guidés</p>
+          <h2>Ce que l'élève a fait</h2>
+          <p>Les stagiaires peuvent cocher une ou plusieurs propositions dans chaque rubrique. La synthèse finale se construit automatiquement à partir de ces sélections.</p>
+          <div class="card__actions">
+            <button class="button button--secondary" data-copy-target="exercise5-trace-output" data-default-label="Copier la synthèse">Copier la synthèse</button>
+          </div>
+          <div class="field">
+            <label>1. Prompt utilisé</label>
+            <div class="choice-grid">
+              <div class="choice-option">
+                <input id="exercise5-trace-prompt-1" type="checkbox" name="exercise5-trace-prompt" value="J'ai utilise un prompt tres simple pour obtenir une premiere reponse globale sur le sujet.">
+                <label for="exercise5-trace-prompt-1">
+                  <strong>Option A</strong>
+                  <span>Prompt simple pour obtenir une première réponse globale sur le sujet.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-prompt-2" type="checkbox" name="exercise5-trace-prompt" value="J'ai demande un brouillon structure avec introduction, deux idees developpees et une conclusion.">
+                <label for="exercise5-trace-prompt-2">
+                  <strong>Option B</strong>
+                  <span>Prompt structuré avec introduction, deux idées développées et conclusion.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-prompt-3" type="checkbox" name="exercise5-trace-prompt" value="J'ai cadre le prompt pour obtenir un texte scolaire clair, volontairement perfectible, afin de pouvoir ensuite le retravailler.">
+                <label for="exercise5-trace-prompt-3">
+                  <strong>Option C</strong>
+                  <span>Prompt cadré pour obtenir un texte clair mais perfectible, donc retravaillable.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>2. Ce que je garde du brouillon IA</label>
+            <div class="choice-grid">
+              <div class="choice-option">
+                <input id="exercise5-trace-keep-1" type="checkbox" name="exercise5-trace-keep" value="Je garde surtout le plan general propose par l'IA, car il organise deja les idees principales.">
+                <label for="exercise5-trace-keep-1">
+                  <strong>Option A</strong>
+                  <span>Je garde surtout le plan général, déjà utile pour organiser les idées.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-keep-2" type="checkbox" name="exercise5-trace-keep" value="Je garde l'idee sur la fin des privileges et celle sur la diffusion des principes d'egalite.">
+                <label for="exercise5-trace-keep-2">
+                  <strong>Option B</strong>
+                  <span>Je garde les idées sur la fin des privilèges et sur l’égalité civile.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-keep-3" type="checkbox" name="exercise5-trace-keep" value="Je garde quelques formulations utiles, mais surtout les notions historiques centrales deja presentes dans le brouillon.">
+                <label for="exercise5-trace-keep-3">
+                  <strong>Option C</strong>
+                  <span>Je garde quelques formulations utiles et les notions historiques centrales.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>3. Ce que je corrige, supprime ou reformule</label>
+            <div class="choice-grid">
+              <div class="choice-option">
+                <input id="exercise5-trace-edit-1" type="checkbox" name="exercise5-trace-edit" value="Je reformule la conclusion pour la rendre plus precise et moins generale.">
+                <label for="exercise5-trace-edit-1">
+                  <strong>Option A</strong>
+                  <span>Je reformule la conclusion, trop générale dans le brouillon initial.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-edit-2" type="checkbox" name="exercise5-trace-edit" value="Je supprime un passage trop vague et je corrige une approximation historique avant de garder le texte.">
+                <label for="exercise5-trace-edit-2">
+                  <strong>Option B</strong>
+                  <span>Je supprime un passage vague et je corrige une approximation historique.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-edit-3" type="checkbox" name="exercise5-trace-edit" value="Je reorganise l'ordre des idees pour mieux montrer les transformations politiques puis sociales.">
+                <label for="exercise5-trace-edit-3">
+                  <strong>Option C</strong>
+                  <span>Je réorganise l’ordre des idées pour mieux faire apparaître la logique du devoir.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>4. Ce que je vérifie</label>
+            <div class="choice-grid">
+              <div class="choice-option">
+                <input id="exercise5-trace-check-1" type="checkbox" name="exercise5-trace-check" value="Je verifie les dates essentielles, en particulier 1789 et les grands evenements de la Revolution francaise.">
+                <label for="exercise5-trace-check-1">
+                  <strong>Option A</strong>
+                  <span>Je vérifie les dates essentielles, notamment 1789 et les grands repères.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-check-2" type="checkbox" name="exercise5-trace-check" value="Je verifie les notions de Declaration des droits, d'abolition des privileges et d'egalite civile.">
+                <label for="exercise5-trace-check-2">
+                  <strong>Option B</strong>
+                  <span>Je vérifie les notions de Déclaration des droits, abolition des privilèges et égalité civile.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-check-3" type="checkbox" name="exercise5-trace-check" value="Je verifie qu'aucune formulation du brouillon ne fait croire a tort que tous les changements ont ete immediats ou complets.">
+                <label for="exercise5-trace-check-3">
+                  <strong>Option C</strong>
+                  <span>Je vérifie que le texte ne simplifie pas trop les effets réels de la Révolution.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>5. Ce que j'assume comme choix personnel</label>
+            <div class="choice-grid">
+              <div class="choice-option">
+                <input id="exercise5-trace-choice-1" type="checkbox" name="exercise5-trace-choice" value="Je choisis d'insister davantage sur la transformation politique de la societe francaise.">
+                <label for="exercise5-trace-choice-1">
+                  <strong>Option A</strong>
+                  <span>J’insiste davantage sur la transformation politique de la société française.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-choice-2" type="checkbox" name="exercise5-trace-choice" value="Je choisis de mettre en avant l'idee d'egalite civile comme fil conducteur du devoir.">
+                <label for="exercise5-trace-choice-2">
+                  <strong>Option B</strong>
+                  <span>Je fais de l’égalité civile le fil conducteur de ma réponse.</span>
+                </label>
+              </div>
+              <div class="choice-option">
+                <input id="exercise5-trace-choice-3" type="checkbox" name="exercise5-trace-choice" value="Je choisis une version plus claire et plus sobre que le brouillon initial pour qu'elle soit plus convaincante a l'ecrit.">
+                <label for="exercise5-trace-choice-3">
+                  <strong>Option C</strong>
+                  <span>Je privilégie une version plus claire et plus sobre que le brouillon initial.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Production stagiaire</p>
+          <h2>Trace du travail générée</h2>
+          <p>Cette synthèse reprend automatiquement les réponses saisies ci-contre. Elle sera réutilisée directement dans l'étape 3 dès que les 5 rubriques seront complétées.</p>
+          <div class="field">
+            <label for="exercise5-trace-output">Synthèse automatique</label>
+            <textarea class="text-input" id="exercise5-trace-output" readonly></textarea>
+          </div>
+          <div class="card__actions">
+            <a class="button button--ghost" href="5-exercice-grille.html">
+              <i class="fa-solid fa-arrow-right"></i>
+              Passer à l'étape 3
+            </a>
+          </div>
+          <div class="status" data-save-status></div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Repères</p>
+          <h2>Ce qu'on veut voir apparaître</h2>
+          <ol class="notes">
+            <li>Le point de départ donné à l'IA.</li>
+            <li>Les modifications réellement faites par l'élève.</li>
+            <li>Une vérification de faits ou de formulations.</li>
+            <li>Un choix personnel identifiable dans la version finale.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var subject = "En quoi la Révolution française transforme-t-elle durablement la société française ?";
+      var groups = [
+        { name: "exercise5-trace-prompt", storageKey: "labia_ex5_trace_prompt", label: "Prompt utilise" },
+        { name: "exercise5-trace-keep", storageKey: "labia_ex5_trace_keep", label: "Ce que je garde du brouillon IA" },
+        { name: "exercise5-trace-edit", storageKey: "labia_ex5_trace_edit", label: "Ce que je corrige, supprime ou reformule" },
+        { name: "exercise5-trace-check", storageKey: "labia_ex5_trace_check", label: "Ce que je verifie" },
+        { name: "exercise5-trace-choice", storageKey: "labia_ex5_trace_choice", label: "Ce que j'assume comme choix personnel" }
+      ];
+      var output = document.getElementById("exercise5-trace-output");
+      var status = document.querySelector("[data-save-status]");
+
+      function getStoredValue(key) {
+        try {
+          return window.localStorage.getItem(key) || "";
+        } catch (error) {
+          return "";
+        }
+      }
+
+      function setStoredValue(key, value) {
+        try {
+          window.localStorage.setItem(key, value);
+          if (status) {
+            status.textContent = "Les choix sont enregistres localement sur ce navigateur.";
+          }
+        } catch (error) {
+          if (status) {
+            status.textContent = "Le navigateur bloque l'enregistrement local. Pensez a noter vos choix.";
+          }
+        }
+      }
+
+      function getSelectedValues(groupName) {
+        return Array.prototype.slice.call(document.querySelectorAll('input[name="' + groupName + '"]:checked')).map(function (input) {
+          return input.value.trim();
+        }).filter(Boolean);
+      }
+
+      function formatSummaryBlock(values) {
+        if (!values.length) {
+          return "-";
+        }
+
+        return values.map(function (value) {
+          return "- " + value;
+        }).join("\n");
+      }
+
+      function buildSummary() {
+        return [
+          "Sujet :",
+          subject,
+          "",
+          "Prompt utilise :",
+          formatSummaryBlock(getSelectedValues("exercise5-trace-prompt")),
+          "",
+          "Ce que je garde du brouillon IA :",
+          formatSummaryBlock(getSelectedValues("exercise5-trace-keep")),
+          "",
+          "Ce que je corrige, supprime ou reformule :",
+          formatSummaryBlock(getSelectedValues("exercise5-trace-edit")),
+          "",
+          "Ce que je verifie :",
+          formatSummaryBlock(getSelectedValues("exercise5-trace-check")),
+          "",
+          "Ce que j'assume comme choix personnel :",
+          formatSummaryBlock(getSelectedValues("exercise5-trace-choice"))
+        ].join("\n");
+      }
+
+      function refreshSummary() {
+        var hasSelection = groups.some(function (group) {
+          return getSelectedValues(group.name).length > 0;
+        });
+        var isReady = groups.every(function (group) {
+          return getSelectedValues(group.name).length > 0;
+        });
+        var summary = hasSelection ? buildSummary() : "";
+
+        if (output) {
+          output.value = summary;
+        }
+
+        setStoredValue("labia_ex5_journal", isReady ? summary : "");
+      }
+
+      groups.forEach(function (group) {
+        var savedValue = getStoredValue(group.storageKey);
+        var savedValues = [];
+        if (savedValue) {
+          try {
+            savedValues = JSON.parse(savedValue);
+          } catch (error) {
+            savedValues = [savedValue];
+          }
+        }
+
+        document.querySelectorAll('input[name="' + group.name + '"]').forEach(function (input) {
+          if (savedValues.indexOf(input.value) !== -1) {
+            input.checked = true;
+          }
+
+          input.addEventListener("change", function () {
+            var values = getSelectedValues(group.name);
+            setStoredValue(group.storageKey, JSON.stringify(values));
+            refreshSummary();
+          });
+        });
+      });
+
+      refreshSummary();
+    })();
+  </script>
+  <script defer src="exercise-pages.js"></script>
+</body>
+</html>

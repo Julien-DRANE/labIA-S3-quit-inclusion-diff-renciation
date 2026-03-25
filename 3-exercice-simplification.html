@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1 - Simplifier un texte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="exercise-pages.css" rel="stylesheet">
+</head>
+<body>
+  <main class="exercise-shell">
+    <section class="hero">
+      <div class="hero__top">
+        <a class="back-link" href="3.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la slide 3
+        </a>
+        <span class="badge"><i class="fa-solid fa-bolt"></i> Fiche prête à l'emploi</span>
+      </div>
+      <h1>Exercice 1 : simplifier un texte</h1>
+      <p>Objectif : donner aux stagiaires un chemin direct pour obtenir une version plus lisible d'un texte disciplinaire sans perdre le sens scientifique.</p>
+      <div class="pill-nav">
+        <a class="pill is-active" href="3-exercice-simplification.html">1. Simplifier</a>
+        <a class="pill" href="3-exercice-audio.html">2. Faire l'audio</a>
+        <a class="pill" href="3-exercice-segmentation.html">3. Segmenter</a>
+      </div>
+    </section>
+
+    <section class="exercise-grid">
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Texte support</p>
+          <h2>Texte complexe à simplifier</h2>
+          <p>Les stagiaires peuvent partir de ce texte tel quel. Il est volontairement dense pour montrer l'apport de l'outil.</p>
+          <div class="card__actions">
+            <span class="source-chip"><i class="fa-solid fa-book-open"></i> Support déjà prêt</span>
+            <button class="button button--secondary" data-copy-target="exercise-original-text" data-default-label="Copier le texte">Copier le texte</button>
+          </div>
+          <div class="field">
+            <label for="exercise-original-text">Texte à simplifier</label>
+            <textarea class="text-input" id="exercise-original-text" readonly>La photosynthèse est le processus biochimique par lequel les végétaux chlorophylliens transforment l'énergie lumineuse en énergie chimique. Grâce à la chlorophylle, ils captent la lumière du Soleil pour convertir l'eau puisée par les racines et le dioxyde de carbone présent dans l'air en matière organique, principalement du glucose. Cette transformation libère également du dioxygène dans l'atmosphère, ce qui contribue à maintenir des conditions favorables à la vie sur Terre.</textarea>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Prompt prêt à copier</p>
+          <h2>Prompt pour Duck.ai</h2>
+          <p>Le prompt est déjà rédigé pour éviter aux stagiaires d'improviser. Ils n'ont plus qu'à le coller dans Duck.ai.</p>
+          <div class="card__actions">
+            <a class="button" href="https://duck.ai/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Ouvrir Duck.ai
+            </a>
+            <button class="button button--secondary" data-copy-target="exercise-simplify-prompt" data-default-label="Copier le prompt">Copier le prompt</button>
+          </div>
+          <div class="field">
+            <label for="exercise-simplify-prompt">Prompt à coller</label>
+            <textarea class="text-input" id="exercise-simplify-prompt" readonly>Tu es un assistant pédagogique.
+
+Simplifie le texte suivant pour un élève de collège ayant des difficultés de lecture et d'attention.
+
+Contraintes :
+- Garde toutes les informations scientifiques justes.
+- Utilise des phrases courtes.
+- Remplace le vocabulaire difficile par des mots fréquents.
+- Garde les mots importants : photosynthèse, chlorophylle, dioxyde de carbone, glucose, dioxygène.
+- Organise le résultat avec 1 petit titre puis 4 à 6 phrases.
+- N'invente rien.
+
+Texte à simplifier :
+La photosynthèse est le processus biochimique par lequel les végétaux chlorophylliens transforment l'énergie lumineuse en énergie chimique. Grâce à la chlorophylle, ils captent la lumière du Soleil pour convertir l'eau puisée par les racines et le dioxyde de carbone présent dans l'air en matière organique, principalement du glucose. Cette transformation libère également du dioxygène dans l'atmosphère, ce qui contribue à maintenir des conditions favorables à la vie sur Terre.</textarea>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Production stagiaire</p>
+          <h2>Texte simplifié à recoller</h2>
+          <p>Le champ ci-dessous se sauvegarde automatiquement. Il servira ensuite dans les étapes audio et segmentation.</p>
+          <div class="field">
+            <label for="exercise-simplified-output">Version simplifiée</label>
+            <textarea class="text-input" id="exercise-simplified-output" data-storage-key="labia_ex3_simplified_text" placeholder="Recoller ici le texte simplifié généré par Duck.ai..."></textarea>
+            <small>Astuce : gardez le sens scientifique, mais allégez la syntaxe et le lexique.</small>
+          </div>
+          <div class="card__actions">
+            <a class="button button--ghost" href="3-exercice-audio.html">
+              <i class="fa-solid fa-arrow-right"></i>
+              Passer à l'étape 2
+            </a>
+          </div>
+          <div class="status" data-save-status></div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Mode d'emploi</p>
+          <h2>En 3 gestes</h2>
+          <ol class="notes">
+            <li>Copiez le prompt déjà prêt.</li>
+            <li>Collez-le dans Duck.ai puis lancez la réponse.</li>
+            <li>Relisez vite fait et recollez la version simplifiée dans le champ de droite.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="exercise-pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3 - Grille d'évaluation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="exercise-pages.css" rel="stylesheet">
+</head>
+<body>
+  <main class="exercise-shell">
+    <section class="hero">
+      <div class="hero__top">
+        <a class="back-link" href="5.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la slide 5
+        </a>
+        <span class="badge"><i class="fa-solid fa-table-cells"></i> Évaluer le processus</span>
+      </div>
+      <h1>Exercice 3 : construire la grille d'évaluation</h1>
+      <p>Objectif : produire une grille qui valorise la trace du raisonnement, les vérifications et les choix, plutôt qu'une simple chasse à l'IA.</p>
+      <div class="pill-nav">
+        <a class="pill" href="5-exercice-brouillon.html">1. Brouillon</a>
+        <a class="pill" href="5-exercice-journal.html">2. Trace du travail</a>
+        <a class="pill is-active" href="5-exercice-grille.html">3. Grille d'évaluation</a>
+      </div>
+    </section>
+
+    <section class="exercise-grid">
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Éléments récupérés</p>
+          <h2>Brouillon et trace du travail</h2>
+          <p>Les deux traces de travail sont reprises ici pour alimenter la construction de la grille.</p>
+          <div class="field">
+            <label for="exercise5-grid-draft">Brouillon généré</label>
+            <textarea class="text-input" id="exercise5-grid-draft" readonly data-read-from="labia_ex5_draft" data-empty-message="Faites d'abord l'étape 1 pour récupérer ici le brouillon."></textarea>
+          </div>
+          <div class="field">
+            <label for="exercise5-grid-journal">Trace du travail</label>
+            <textarea class="text-input" id="exercise5-grid-journal" readonly data-read-from="labia_ex5_journal" data-empty-message="Faites d'abord l'étape 2 pour récupérer ici la trace du travail."></textarea>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Prompt prêt à copier</p>
+          <h2>Prompt pour Duck.ai</h2>
+          <p>Le prompt force l’outil à produire une grille centrée sur le processus, avec des critères observables et une échelle simple.</p>
+          <div class="card__actions">
+            <a class="button" href="https://duck.ai/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Ouvrir Duck.ai
+            </a>
+            <button class="button button--secondary" data-copy-target="exercise5-grid-prompt" data-default-label="Copier le prompt">Copier le prompt</button>
+          </div>
+          <div class="field">
+            <label for="exercise5-grid-prompt">Prompt à coller</label>
+            <textarea class="text-input" id="exercise5-grid-prompt" readonly data-template-bindings="labia_ex5_draft::{{BROUILLON_ELEVE}}||labia_ex5_journal::{{TRACE_DU_TRAVAIL}}" data-template-empty-message="[Contenu non encore rempli]">Tu es un assistant pédagogique.
+
+À partir du brouillon d'élève et de la trace du travail ci-dessous, construis une grille d'évaluation centrée sur le processus.
+
+Contraintes :
+- Propose 6 critères maximum.
+- Chaque critère doit être observable.
+- Utilise 4 niveaux de maîtrise :
+  4 = Très bonne maîtrise
+  3 = Maîtrise satisfaisante
+  2 = Maîtrise fragile
+  1 = Maîtrise insuffisante
+- Fais ressortir des critères comme : traçabilité des prompts, qualité des corrections, vérification des informations, justification des choix, recul critique.
+- Présente la réponse sous forme de tableau lisible ou de grille structurée.
+
+Brouillon d'élève :
+{{BROUILLON_ELEVE}}
+
+Trace du travail :
+{{TRACE_DU_TRAVAIL}}</textarea>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Production stagiaire</p>
+          <h2>Grille d'évaluation finale</h2>
+          <p>Le résultat final servira de support de discussion pour le débriefing de la slide 5.</p>
+          <div class="field">
+            <label for="exercise5-grid-output">Grille construite</label>
+            <textarea class="text-input" id="exercise5-grid-output" data-storage-key="labia_ex5_grid" placeholder="Recoller ici la grille d'évaluation produite par Duck.ai..."></textarea>
+          </div>
+          <div class="status" data-save-status></div>
+        </article>
+
+        <article class="card completion-section" data-complete-keys="labia_ex5_draft,labia_ex5_journal,labia_ex5_grid" data-ready-message="Les 3 productions sont remplies. Vous pouvez ouvrir l'infographie finale." data-incomplete-message="Completez d'abord les 3 productions : brouillon, trace du travail, grille d'évaluation.">
+          <p class="eyebrow">Fin du parcours</p>
+          <h2>Étape finale</h2>
+          <p>Quand les trois productions sont remplies, ouvrez la page suivante pour afficher l’infographie seule avant le retour à la slide 5.</p>
+          <div class="completion-footer">
+            <p class="completion-hint" data-completion-hint>Completez d'abord les 3 productions : brouillon, trace du travail, grille d'évaluation.</p>
+            <a class="button is-disabled" href="5-infographie-finale.html" aria-disabled="true" data-completion-button>
+              <i class="fa-solid fa-arrow-right"></i>
+              Voir l'infographie finale
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="exercise-pages.js"></script>
+</body>
+</html>

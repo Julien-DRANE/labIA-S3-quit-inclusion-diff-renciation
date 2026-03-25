@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 2 - Version audio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="exercise-pages.css" rel="stylesheet">
+</head>
+<body>
+  <main class="exercise-shell">
+    <section class="hero">
+      <div class="hero__top">
+        <a class="back-link" href="3.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la slide 3
+        </a>
+        <span class="badge"><i class="fa-solid fa-volume-high"></i> Appui audio immédiat</span>
+      </div>
+      <h1>Exercice 2 : produire une version audio</h1>
+      <p>Objectif : repartir du texte simplifié et créer vite une version lue à voix haute pour soutenir la lecture.</p>
+      <div class="pill-nav">
+        <a class="pill" href="3-exercice-simplification.html">1. Simplifier</a>
+        <a class="pill is-active" href="3-exercice-audio.html">2. Faire l'audio</a>
+        <a class="pill" href="3-exercice-segmentation.html">3. Segmenter</a>
+      </div>
+    </section>
+
+    <section class="exercise-grid">
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Texte récupéré</p>
+          <h2>Texte simplifié à utiliser</h2>
+          <p>Si l'étape 1 a déjà été faite sur ce navigateur, le texte apparaît automatiquement ici.</p>
+          <div class="card__actions">
+            <button class="button button--secondary" data-copy-target="exercise-audio-source" data-default-label="Copier le texte simplifié">Copier le texte simplifié</button>
+            <button class="button button--ghost" data-fill-target="exercise-audio-script" data-fill-source-key="labia_ex3_simplified_text">Remettre ce texte dans le champ audio</button>
+          </div>
+          <div class="field">
+            <label for="exercise-audio-source">Texte simplifié source</label>
+            <textarea class="text-input" id="exercise-audio-source" readonly data-read-from="labia_ex3_simplified_text" data-empty-message="Faites d'abord l'étape 1 pour récupérer ici le texte simplifié."></textarea>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Outil recommandé</p>
+          <h2>Lien direct vers un outil gratuit</h2>
+          <div class="tool-link">
+            <i class="fa-solid fa-headphones-simple" style="color:#1F6FB2; margin-top:4px;"></i>
+            <div>
+              <strong>TTSMaker</strong>
+              <span>Outil gratuit de text-to-speech. Il suffit d'y coller le texte simplifié puis de choisir une voix en français.</span>
+            </div>
+          </div>
+          <div class="card__actions" style="margin-top:16px;">
+            <a class="button" href="https://ttsmaker.com/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Ouvrir TTSMaker
+            </a>
+            <a class="button button--secondary" href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Alternative : NotebookLM
+            </a>
+          </div>
+          <ol class="notes">
+            <li>Collez le texte simplifié dans l'outil.</li>
+            <li>Choisissez une voix française calme et un débit modéré.</li>
+            <li>Faites écouter ou téléchargez l'audio si besoin.</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Prompt facultatif</p>
+          <h2>Consigne si vous passez par NotebookLM ou un assistant vocal</h2>
+          <p>Cette consigne sert si l'outil choisi accepte une instruction textuelle en plus du texte à lire.</p>
+          <div class="card__actions">
+            <button class="button button--secondary" data-copy-target="exercise-audio-prompt" data-default-label="Copier la consigne">Copier la consigne</button>
+          </div>
+          <div class="field">
+            <label for="exercise-audio-prompt">Consigne prête à coller</label>
+            <textarea class="text-input" id="exercise-audio-prompt" readonly>Lis ce texte en français avec une voix claire, posée et accessible pour un élève ayant des difficultés de lecture.
+
+Contraintes :
+- N'ajoute aucune information.
+- Respecte le texte tel qu'il est écrit.
+- Fais des pauses légères entre les phrases.
+- Garde un débit lent et rassurant.</textarea>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Production stagiaire</p>
+          <h2>Texte final utilisé dans l'outil TTS</h2>
+          <p>Le champ se préremplit avec le texte simplifié quand il existe. Les stagiaires peuvent le retoucher légèrement avant le collage.</p>
+          <div class="field">
+            <label for="exercise-audio-script">Texte lu par l'outil audio</label>
+            <textarea class="text-input" id="exercise-audio-script" data-storage-key="labia_ex3_audio_script" data-prefill-from="labia_ex3_simplified_text" placeholder="Collez ici le texte final envoyé dans l'outil TTS..."></textarea>
+          </div>
+          <div class="field">
+            <label for="exercise-audio-note">Lien, nom du fichier ou remarque</label>
+            <textarea class="text-input" id="exercise-audio-note" data-storage-key="labia_ex3_audio_note" placeholder="Exemple : audio téléchargé en MP3, voix française lente, ou collez ici un lien si vous en avez un."></textarea>
+          </div>
+          <div class="card__actions">
+            <a class="button button--ghost" href="3-exercice-segmentation.html">
+              <i class="fa-solid fa-arrow-right"></i>
+              Passer à l'étape 3
+            </a>
+          </div>
+          <div class="status" data-save-status></div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script defer src="exercise-pages.js"></script>
+</body>
+</html>

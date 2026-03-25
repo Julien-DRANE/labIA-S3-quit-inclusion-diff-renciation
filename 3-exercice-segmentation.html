@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3 - Segmenter pour TDAH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="exercise-pages.css" rel="stylesheet">
+</head>
+<body>
+  <main class="exercise-shell">
+    <section class="hero">
+      <div class="hero__top">
+        <a class="back-link" href="3.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Retour à la slide 3
+        </a>
+        <span class="badge"><i class="fa-solid fa-layer-group"></i> Adaptation visuelle guidée</span>
+      </div>
+      <h1>Exercice 3 : segmenter pour un élève TDAH</h1>
+      <p>Objectif : reprendre le texte simplifié et obtenir une version encore plus découpée, visuelle et facile à suivre.</p>
+      <div class="pill-nav">
+        <a class="pill" href="3-exercice-simplification.html">1. Simplifier</a>
+        <a class="pill" href="3-exercice-audio.html">2. Faire l'audio</a>
+        <a class="pill is-active" href="3-exercice-segmentation.html">3. Segmenter</a>
+      </div>
+    </section>
+
+    <section class="exercise-grid">
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Texte récupéré</p>
+          <h2>Texte simplifié de départ</h2>
+          <p>La segmentation repart du texte simplifié de l'étape 1 pour éviter de surcharger les stagiaires.</p>
+          <div class="card__actions">
+            <button class="button button--secondary" data-copy-target="exercise-segmentation-source" data-default-label="Copier le texte simplifié">Copier le texte simplifié</button>
+          </div>
+          <div class="field">
+            <label for="exercise-segmentation-source">Texte source</label>
+            <textarea class="text-input" id="exercise-segmentation-source" readonly data-read-from="labia_ex3_simplified_text" data-empty-message="Faites d'abord l'étape 1 pour récupérer ici le texte simplifié."></textarea>
+          </div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Prompt prêt à copier</p>
+          <h2>Prompt pour Duck.ai</h2>
+          <p>Ici, l'idée est de demander une version très découpée, avec une idée par ligne et des repères visuels évidents.</p>
+          <div class="card__actions">
+            <a class="button" href="https://duck.ai/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-solid fa-up-right-from-square"></i>
+              Ouvrir Duck.ai
+            </a>
+            <button class="button button--secondary" data-copy-target="exercise-segmentation-prompt" data-default-label="Copier le prompt">Copier le prompt</button>
+          </div>
+          <div class="field">
+            <label for="exercise-segmentation-prompt">Prompt à coller</label>
+            <textarea class="text-input" id="exercise-segmentation-prompt" readonly>Tu es un assistant pédagogique spécialisé dans l'adaptation pour un élève avec TDAH.
+
+Reprends le texte simplifié ci-dessous sans changer les informations.
+
+Contraintes :
+- Garde exactement le même sens.
+- Fais un titre clair.
+- Découpe en blocs très courts.
+- Mets une seule idée par ligne ou par puce.
+- Fais ressortir les mots très importants.
+- Ajoute 3 petites questions de vérification à la fin.
+- N'invente rien.
+
+Texte à segmenter :
+[colle ici le texte simplifié affiché juste au-dessus]</textarea>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="card">
+          <p class="eyebrow">Production stagiaire</p>
+          <h2>Version segmentée à recoller</h2>
+          <p>Cette version peut ensuite être relue et imprimée comme support adapté.</p>
+          <div class="field">
+            <label for="exercise-segmentation-output">Texte segmenté</label>
+            <textarea class="text-input" id="exercise-segmentation-output" data-storage-key="labia_ex3_segmented_text" placeholder="Recoller ici la version segmentée générée par Duck.ai..."></textarea>
+          </div>
+          <div class="status" data-save-status></div>
+        </article>
+
+        <article class="card">
+          <p class="eyebrow">Rappel pédagogique</p>
+          <h2>Ce que l'on veut observer</h2>
+          <ol class="notes">
+            <li>Le texte est plus respirable et plus lisible.</li>
+            <li>Les informations scientifiques sont toujours exactes.</li>
+            <li>Les mots clés restent visibles.</li>
+            <li>Les consignes de lecture deviennent plus faciles à suivre.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="card completion-section" data-complete-keys="labia_ex3_simplified_text,labia_ex3_audio_script,labia_ex3_segmented_text" data-ready-message="Les 3 productions sont remplies. Vous pouvez ouvrir l'infographie finale." data-incomplete-message="Completez d'abord les 3 productions : texte simplifie, texte utilise pour l'audio, texte segmente.">
+      <p class="eyebrow">Fin du parcours</p>
+      <h2>Étape finale</h2>
+      <p>Quand les 3 productions sont remplies, ouvrez la page suivante pour afficher l’infographie seule et conclure l’activité avant le retour à la slide 3.</p>
+      <div class="completion-footer">
+        <p class="completion-hint" data-completion-hint>Completez d'abord les 3 productions : texte simplifie, texte utilise pour l'audio, texte segmente.</p>
+        <a class="button is-disabled" href="3-infographie-finale.html" aria-disabled="true" data-completion-button>
+          <i class="fa-solid fa-arrow-right"></i>
+          Voir l'infographie finale
+        </a>
+      </div>
+    </section>
+  </main>
+  <script defer src="exercise-pages.js"></script>
+</body>
+</html>
